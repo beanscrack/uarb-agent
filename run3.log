@@ -1,0 +1,27 @@
+Traceback (most recent call last):
+  File "C:\Users\fortn\task1\uarb_agent\uarb_scrape.py", line 293, in <module>
+    if cand is None:
+                 ^^^^
+  File "C:\Users\fortn\task1\uarb_agent\uarb_scrape.py", line 257, in scrape
+    if f["name"] in names:
+                   ^^^^^^^^
+  File "C:\Users\fortn\task1\uarb_agent\uarb_scrape.py", line 146, in visible_rows
+    number AND /<ext> text. doc = numeric doc No (validated by the alphabetic Security column
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fortn\task1\uarb_agent\.venv\Lib\site-packages\playwright\sync_api\_generated.py", line 16843, in evaluate
+    self._sync(
+  File "C:\Users\fortn\task1\uarb_agent\.venv\Lib\site-packages\playwright\_impl\_sync_base.py", line 111, in _sync
+    return task.result()
+           ^^^^^^^^^^^^^
+  File "C:\Users\fortn\task1\uarb_agent\.venv\Lib\site-packages\playwright\_impl\_page.py", line 476, in evaluate
+    return await self._main_frame.evaluate(expression, arg)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fortn\task1\uarb_agent\.venv\Lib\site-packages\playwright\_impl\_frame.py", line 346, in evaluate
+    await self._channel.send(
+  File "C:\Users\fortn\task1\uarb_agent\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 78, in send
+    return await self._connection.wrap_api_call(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\fortn\task1\uarb_agent\.venv\Lib\site-packages\playwright\_impl\_connection.py", line 636, in wrap_api_call
+    raise rewrite_error(error, f"{parsed_st['apiName']}: {error}") from None
+playwright._impl._errors.Error: Page.evaluate: Execution context was destroyed, most likely because of a navigation
+EXIT=1

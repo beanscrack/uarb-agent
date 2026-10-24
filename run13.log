@@ -1,0 +1,2 @@
+C:\Users\fortn\task1\uarb_agent\uarb_scrape.py:193: SyntaxWarning: invalid escape sequence '\('
+  const docRe = /^\\d{3,6}$|^[A-Za-z]{1,3}(-\\d{1,3})?(\([A-Za-z]\))?(-[ivxIVX]{1,4})?$/;
