@@ -62,6 +62,7 @@ slides = [
     (7, P("07_portal_exhibits.png"), [
         ("portal rows: virtual rendered, ~ 8 at a time", 40, 20, 30, "white"),
         ("rows = grid skin, leaf-text walking finds them, not DOM rows", 26, 20, 92, "white"),
+        ("row listing: zoomed crop of the portal (rows + Preview / GO GET IT)", 24, 20, 128, "0xffd6a5"),
     ]),
     (8, P("08_ready1.png"), [
         ("STEP 4  THE DOWNLOAD MACHINE", 44, 20, 30, "white"),
@@ -81,11 +82,11 @@ slides = [
         ("probe_mechA..E: direct fetch 403; route.fetch WITH cookies OK", 27, 60, 216, "0xcfe6ff"),
         ("Lesson saved: skill filemaker-webdirect-scraping", 26, 60, 258, "0x9fe8c0"),
     ]),
-    (7, P("11_keydocs.png"), [
+    (7, P("wide_keydocs.png"), [
         ("all tabs harvest with the same machine", 34, 20, 30, "white"),
         ("Key Documents - 6", 26, 20, 92, "white"),
     ]),
-    (7, P("12_otherdocs.png"), [
+    (7, P("wide_otherdocs.png"), [
         ("Other Documents - 43 (biggest tab)", 34, 20, 30, "white"),
         ("first 8-10 rows, rest logged as refused", 26, 20, 92, "white"),
     ]),
