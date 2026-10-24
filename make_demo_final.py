@@ -109,7 +109,7 @@ slides = [
         ("probe the mechanism, not the markup: RPC decode + matrix", 27, 60, 140, "0xcfe6ff"),
         ("found the minted-token wall for real, not from docs.", 27, 60, 178, "0xcfe6ff"),
         ("reproducible demo beats polished claims.", 27, 60, 216, "0xcfe6ff"),
-        ("code: github.com/fortnbrnsecond1-maker/uarb-agent", 24, 60, 262, "0x9fe8c0"),
+        ("code: github.com/beanscrack/uarb-agent", 24, 60, 262, "0x9fe8c0"),
     ]),
 ]
 

@@ -165,7 +165,7 @@ def build_bundle_html(meta: dict, files: list[dict], matter: str, tab: str) -> s
         f"<p>Document counts: {', '.join(f'{k}: {v}' for k, v in counts.items())}</p>"
         f"<table border='1' cellpadding='6' style='border-collapse:collapse;font-size:13px'>"
         f"<tr style='background:#eef'><th>Doc #</th><th>Title</th><th>Date</th><th>Size</th></tr>{rows}</table>"
-        f"<p style='color:#777;font-size:12px'>ZIP attached. Source: github.com/fortnbrnsecond1-maker/uarb-agent</p>"
+        f"<p style='color:#777;font-size:12px'>ZIP attached. Source: github.com/beanscrack/uarb-agent</p>"
         f"</body></html>"
     )
 
