@@ -83,13 +83,17 @@ slides = [
         ("Lesson saved: skill filemaker-webdirect-scraping", 26, 60, 258, "0x9fe8c0"),
     ]),
     (7, P("wide_keydocs.png"), [
-        ("all tabs harvest with the same machine", 34, 20, 30, "white"),
-        ("Key Documents - 6", 26, 20, 92, "white"),
-    ]),
-    (7, P("wide_otherdocs.png"), [
-        ("Other Documents - 43 (biggest tab)", 34, 20, 30, "white"),
-        ("first 8-10 rows, rest logged as refused", 26, 20, 92, "white"),
-    ]),
+            ("TAB WORLDS  -  Key Documents portal (6 rows)", 34, 20, 30, "white"),
+            ("same page, same machine, same hail", 26, 20, 92, "white"),
+        ]),
+        (7, P("wide_otherdocs.png"), [
+            ("TAB WORLDS  -  Other Documents portal (43 rows)", 34, 20, 30, "white"),
+            ("first 8-10 rows yield, the wall logs the rest", 26, 20, 92, "white"),
+        ]),
+        (6, P("zoom_rows.png"), [
+            ("row anatomy: doc #, title, date, security, .ext", 34, 20, 30, "white"),
+            ("the parser hard-codes BOTH known row layouts", 24, 20, 92, "white"),
+        ]),
     (6, P("reply_0.png"), [
         ("STEP 5  THE REPLY EMAIL (rendered, incoming format)", 36, 20, 30, "white"),
         ("manifest table + metadata summary + ZIP attached", 24, 20, 92, "white"),
@@ -140,5 +144,24 @@ for dur, img, texts in slides:
 
 ls = TMP / "list.txt"
 ls.write_text("\n".join(f"file 's{i:02d}.mp4'" for i in range(idx)), encoding="utf-8")
-subprocess.run([FF, "-y", "-f", "concat", "-safe", "0", "-i", str(ls), "-c", "copy", str(OUT)], check=True, capture_output=True)
-print("wrote", OUT, OUT.stat().st_size, "bytes;", total, "sec")
+base = TMP / "base.mp4"
+subprocess.run([FF, "-y", "-f", "concat", "-safe", "0", "-i", str(ls), "-c", "copy", str(base)], check=True, capture_output=True)
+
+# narration: two clips (narr1 covers slides up to the 57s mark, narr2 the rest)
+n1, n2 = SCR / "narr1.mp3", SCR / "narr2.mp3"
+if n1.exists() and n2.exists():
+    m = SCR.parent / "demo_uarb_agent.mp4"
+    r = subprocess.run([FF, "-y", "-i", str(base), "-i", str(n1), "-i", str(n2),
+                        "-filter_complex",
+                        "[1:a]adelay=1000|1000[a1]; [2:a]adelay=63000|63000[a2]; [a1][a2]amix=inputs=2:normalize=0[a]",
+                        "-map", "0:v", "-map", "[a]", "-c:v", "copy",
+                        "-c:a", "aac", "-b:a", "160k", "-shortest", str(m)], capture_output=True, text=True)
+    src = m
+    print("mux narration:", r.returncode, r.stderr[-300:] if r.returncode else "")
+    print("wrote", m, m.stat().st_size if m.exists() else "-", "bytes;", total, "sec")
+else:
+    m = SCR.parent / "demo_uarb_agent.mp4"
+    import shutil
+    shutil.copy(base, m)
+    print("no narration audio (narr1/narr2.mp3 missing); silent cut")
+    print("wrote", m, m.stat().st_size, "bytes;", total, "sec")
